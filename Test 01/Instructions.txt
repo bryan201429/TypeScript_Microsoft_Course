@@ -1,0 +1,10 @@
+generate ts config.json file after the file.ts creation
+
+in terminal: tsc --init,
+
+in tsconfig.json: in target put :ES2015 
+                  In outDir put the build directory path (create build directory)
+in terminal: tsc    to reload tsconfig changes
+
+
+After installing nodejs: npm install -g typescript   for install TS globally

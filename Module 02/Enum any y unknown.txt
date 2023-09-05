@@ -1,0 +1,64 @@
+Escriba el código siguiente para crear un objeto enum que represente nuestro escenario:
+
+TypeScript
+
+Copiar
+enum ContractStatus {
+     Permanent,
+     Temp,
+     Apprentice
+}
+Ahora, declare una variable para un nuevo empleado denominada employeeStatus del tipo ContractStatus y asígnele el nombre "Temp". Muestre el resultado en la consola.
+
+TypeScript
+
+Copiar
+let employeeStatus: ContractStatus = ContractStatus.Temp;
+console.log(employeeStatus);
+Seleccione Run (Ejecutar). Anote el valor que se muestra en la ventana Log (Registro). ¿Qué valor se devuelve?
+
+De forma predeterminada, los valores enum comienzan con un valor de 0, por lo que Permanent es 0, Temp es 1 y Apprentice es 2. Si quiere que los valores empiecen con un valor diferente, en este caso 1, especifíquelo en la declaración enum. Realice las ediciones siguientes para que enum empiece los valores en 1.
+
+TypeScript
+
+Copiar
+enum ContractStatus {
+     Permanent = 1,
+     Temp,
+     Apprentice
+}
+
+Vuelva a ejecutar el código seleccionando Run (Ejecutar). Observe que el valor mostrado es ahora 2.
+
+Para mostrar el nombre asociado al valor de enumeración, podemos usar el indexador proporcionado. Agregue lo siguiente en la parte inferior del código:
+
+TypeScript
+
+Copiar
+console.log(ContractStatus[employeeStatus]);
+Ejecute el código. Observe que se muestra el valor Temp, que es el nombre asociado al valor de enumeración 2.
+
+ANY:
+any es un tipo que puede representar cualquier valor de JavaScript sin restricciones. Este tipo puede ser útil si se espera un valor de una biblioteca de terceros o entradas de usuario en las que el valor es dinámico, ya que el tipo any permitirá volver a asignar distintos tipos de valores.
+
+
+
+Unknown:
+
+Aunque es flexible, el tipo any puede producir errores inesperados. Para solucionar este problema, TypeScript ha introducido el tipo unknown.
+
+El tipo unknown es similar al tipo any en que cualquier valor se puede asignar al tipo unknown. Sin embargo, no se puede acceder a las propiedades de un tipo unknown; tampoco se pueden llamar ni construir.
+
+En este ejemplo se cambia el tipo any del ejemplo anterior a unknown. Ahora generará errores de comprobación de tipos y evitará que compile el código hasta que tome las medidas adecuadas para resolverlos.
+
+
+let randomValue: unknown = 10;
+randomValue = true;
+randomValue = 'Mateo';
+
+console.log(randomValue.name);  // Error: Object is of type unknown
+randomValue();                  // Error: Object is of type unknown
+randomValue.toUpperCase();      // Error: Object is of type unknown
+
+La diferencia principal entre any y unknown es que no puede interactuar con una variable de tipo unknown; si lo hace, se genera un error del compilador. any omite las comprobaciones en tiempo de compilación y el objeto se evalúa en tiempo de ejecución. 
+Si el método o la propiedad existen, se comportará según lo esperado.

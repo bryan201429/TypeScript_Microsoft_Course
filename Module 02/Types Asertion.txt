@@ -1,0 +1,45 @@
+Aserción de tipos
+Si necesita tratar una variable como un tipo de datos diferente, puede usar una aserción de tipos. Una aserción de tipos indica a TypeScript que ha realizado cualquier comprobación especial que necesitara antes de llamar a la instrucción. Indica al compilador "confíe en mí, sé lo que estoy haciendo". Una aserción de tipo es como una conversión de tipos en otros lenguajes, pero no realiza ninguna comprobación especial ni reestructuración de los datos. No tiene ningún efecto en el tiempo de ejecución y lo utiliza exclusivamente el compilador.
+
+Las aserciones de tipos tienen dos formatos. Una es la sintaxis de as:
+
+(randomValue as string).toUpperCase();
+
+La otra versión es la sintaxis de "corchetes angulares":
+
+(<string>randomValue).toUpperCase();
+
+ Nota
+
+"as" es la sintaxis preferida. Algunas aplicaciones de TypeScript, como JSX, pueden confundirse al usar < > para las conversiones de tipos.
+En el ejemplo siguiente se realiza la comprobación necesaria para determinar que randomValue es un elemento string antes de usar la aserción de tipos a fin de llamar al método toUpperCase.
+
+let randomValue: unknown = 10;
+
+randomValue = true;
+randomValue = 'Mateo';
+
+if (typeof randomValue === "string") {
+    console.log((randomValue as string).toUpperCase());    //* Returns MATEO to the console.
+} else {
+    console.log("Error - A string was expected here.");    //* Returns an error message.
+}
+
+-------------------------------------------------------------------
+
+
+Restricciones de tipos
+En el ejemplo anterior se muestra el uso de typeof en el bloque if para examinar el tipo de una expresión en tiempo de ejecución. Esta prueba condicional se conoce como restricción de tipos.
+
+Puede que esté familiarizado con el uso de typeof y instanceof en JavaScript para probar estas condiciones. TypeScript entiende estas condiciones y cambiará la inferencia de tipos en consecuencia cuando se use en un bloque if.
+
+Puede usar las condiciones siguientes para descubrir el tipo de una variable:
+
+Tipo	Predicate
+string	typeof s === "string"
+number	typeof n === "number"
+boolean	typeof b === "boolean"
+undefined	typeof undefined === "undefined"
+function	typeof f === "function"
+array	Array.isArray(a)
+

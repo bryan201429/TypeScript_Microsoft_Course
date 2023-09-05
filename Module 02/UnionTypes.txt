@@ -1,0 +1,14 @@
+Tipos de unión
+Un tipo de unión describe un valor que puede ser uno de entre varios tipos. Esta flexibilidad puede ser útil cuando no tenga controlado un valor (por ejemplo, los valores de una biblioteca, una API o una entrada de usuario).
+
+El tipo any también puede aceptar tipos diferentes, así que ¿por qué querría usar un tipo de unión? Los tipos de unión restringen la asignación de valores a los tipos especificados en la unión, mientras que el tipo any no tiene restricciones. Otro motivo es la compatibilidad con IntelliSense.
+
+Un tipo de unión usa la barra vertical o pleca (|) para separar cada tipo. En el ejemplo siguiente, multiType puede ser un valor number o boolean:
+
+TypeScript
+
+Copiar
+let multiType: number | boolean;
+multiType = 20;         //* Valid
+multiType = true;       //* Valid
+multiType = "twenty";   //* Invalid
