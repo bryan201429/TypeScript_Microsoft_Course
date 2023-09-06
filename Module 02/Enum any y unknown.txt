@@ -19,9 +19,6 @@ Seleccione Run (Ejecutar). Anote el valor que se muestra en la ventana Log (Regi
 
 De forma predeterminada, los valores enum comienzan con un valor de 0, por lo que Permanent es 0, Temp es 1 y Apprentice es 2. Si quiere que los valores empiecen con un valor diferente, en este caso 1, especifíquelo en la declaración enum. Realice las ediciones siguientes para que enum empiece los valores en 1.
 
-TypeScript
-
-Copiar
 enum ContractStatus {
      Permanent = 1,
      Temp,
@@ -32,17 +29,16 @@ Vuelva a ejecutar el código seleccionando Run (Ejecutar). Observe que el valor 
 
 Para mostrar el nombre asociado al valor de enumeración, podemos usar el indexador proporcionado. Agregue lo siguiente en la parte inferior del código:
 
-TypeScript
 
-Copiar
 console.log(ContractStatus[employeeStatus]);
 Ejecute el código. Observe que se muestra el valor Temp, que es el nombre asociado al valor de enumeración 2.
 
+----------------------------------------------------------
 ANY:
 any es un tipo que puede representar cualquier valor de JavaScript sin restricciones. Este tipo puede ser útil si se espera un valor de una biblioteca de terceros o entradas de usuario en las que el valor es dinámico, ya que el tipo any permitirá volver a asignar distintos tipos de valores.
 
 
-
+------------------------------------------
 Unknown:
 
 Aunque es flexible, el tipo any puede producir errores inesperados. Para solucionar este problema, TypeScript ha introducido el tipo unknown.
